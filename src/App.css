@@ -1,0 +1,82 @@
+/* Defaults */
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.App {
+  color: white;
+}
+
+.uk-background {
+  background-color: #FDA50F;
+}
+
+/* UI Button  */
+
+.uk-button {
+  background-color: #FDA50F;
+  color: white !important;
+}
+
+.uk-button:hover {
+ background-color: #f4511e; 
+ color: white;
+}
+
+#sum {
+  display:inline;
+  font-size: 50px;
+  margin: 0 50px 0;
+  color: black;
+  font-weight: 700;
+}
+
+/* Footer */
+
+
+.footerText {
+  clear: both;
+  font-size: 20px;
+  font-weight:500;
+}
+
+/* SVG */
+
+.uk-svg {
+  height: 100px;
+  margin-top:-20px;
+}
+
+.Character svg {
+  margin-left: -13px;
+  max-width: 300px;
+  margin-top: -100px;
+  margin-bottom: -50px;
+}
+
+
+.uk-table{
+  color: black;
+}
+
+.uk-table button {
+  color: black !important;
+}
+
+.uk-input {
+  font-size: 14px;
+  color: black;
+  width: 240px;
+}
+
+.information {
+  color:black;
+}
+
