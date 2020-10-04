@@ -35,7 +35,10 @@ function Login(props) {
   return (
     <div className="uk-container uk-position-center">
       <div className="uk-card uk-text-center uk-card-large uk-card-default uk-card-body">
-        <h3>Prisijungimas</h3>
+        {hasAccount ? 
+        <h3>Log In</h3> 
+        : 
+        <h3>Sign Up</h3>}
 
         <form className="uk-form">
           <div className="uk-margin">
@@ -76,8 +79,11 @@ function Login(props) {
                 </button>
                 <p>
                   Don't have an account?
-                  <span className="uk-link" onClick={() => setHasAccount(!hasAccount)}>
-                    Sign up!
+                  <span
+                    className="uk-link"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
+                  Sign up!
                   </span>
                 </p>
               </>
@@ -91,7 +97,8 @@ function Login(props) {
                 </button>
                 <p>
                   Have an account?
-                  <span className="uk-link"
+                  <span
+                    className="uk-link"
                     onClick={() => {
                       setHasAccount(!hasAccount);
                     }}

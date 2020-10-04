@@ -8,6 +8,7 @@ import FriendList from "./components/FriendList";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Login";
 import fire from "./database/fire";
+import firebase from "firebase"
 
 
 function App() {
@@ -55,7 +56,13 @@ function App() {
     clearErrors();
     fire
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password).then((u) => {
+        firebase.database().ref('users/' + u.user.uid).set({
+          goal: 1000,
+          total: 0,
+          updated: firebase.database.ServerValue.TIMESTAMP
+        })
+      })
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -67,6 +74,7 @@ function App() {
             break;
         }
       });
+    
   };
 
   const handleLogout = () => {

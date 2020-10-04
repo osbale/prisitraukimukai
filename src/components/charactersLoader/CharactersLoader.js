@@ -1,14 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
 import CharacterInfo from "./CharacterInfo";
 import firebase from 'firebase'
 
 const CharactersLoader = () => {
 
+  let user = firebase.auth().currentUser;
+  let dbTotal, dbGoal;
+
+  function readUserData() {
+    firebase.database().ref('users/' + user.uid).once('value',(snap) => {
+    dbGoal = snap.val().goal;
+    dbTotal = snap.val().total;
+    console.log(dbGoal);
+    })
+  }
+
+  
+
   const [goal, setGoal] = useState(100);
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
   const [left, setLeft] = useState(goal);
+
+
+
+  function setUserData() {
+    firebase.database().ref('users/' + user.uid).set({
+      goal: goal,
+      total: total,
+      updated: firebase.database.ServerValue.TIMESTAMP
+    });
+  }
 
   function decrementCount() {
     if (count > 0) setCount((prevCount) => prevCount - 1);
@@ -22,19 +45,13 @@ const CharactersLoader = () => {
     if (count <= left) {
       setTotal((total) => total + count);
       setLeft((left) => left - count);
-/*       writeUserData(); */
     }
   }
 
-/* FIREBASE WRITE IN DATABASE */
-  
-/*   function writeUserData(userId) {
-    firebase.database().ref('users/' + userId).set({
-      goal: goal,
-      total: total
-    });
-  } */
-
+  useEffect(() => {
+    readUserData()
+    setUserData()
+  })
 
   return (
     <div>
