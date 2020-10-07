@@ -4,12 +4,12 @@ function FriendList() {
   return (
     <div>
       <div className="uk-card uk-card-default uk-card-body uk-animation-fade">
-        <table class="uk-table uk-table-justify uk-table-divider uk-text-center">
+        <table className="uk-table uk-table-justify uk-table-divider uk-text-center">
           <thead>
             <tr>
-              <th class="uk-width-small uk-text-center">Status</th>
-              <th class="uk-text-center">Friend Name</th>
-              <th class="uk-text-center">Profile</th>
+              <th className="uk-width-small uk-text-center">Status</th>
+              <th className="uk-text-center">Friend Name</th>
+              <th className="uk-text-center">Profile</th>
             </tr>
           </thead>
           <tbody>
@@ -19,7 +19,7 @@ function FriendList() {
               oskaras@gmail.com
               </td>
               <td>
-                <button class="uk-button" type="button">
+                <button className="uk-button" type="button">
                   Profile
                 </button>
               </td>
@@ -30,7 +30,7 @@ function FriendList() {
               oskaras123@gmail.com
               </td>
               <td>
-                <button class="uk-button" type="button">
+                <button className="uk-button" type="button">
                   Profile
                 </button>
               </td>

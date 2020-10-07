@@ -3,14 +3,12 @@ import UIkit from 'uikit'
 
 const Modal = (props) => {
 
-const {setGoal, setTotal, setLeft} = props;
+const {setDbGoal} = props;
 
 const [newGoal, setNewGoal] = useState(0)
 
 const updateInfo = () => {
-    setGoal(newGoal);
-    setTotal(0);
-    setLeft(newGoal);
+    setDbGoal(newGoal);
     UIkit.notification({
         message: "Information updated successfully!",
         status: "success",

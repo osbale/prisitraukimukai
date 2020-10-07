@@ -30,10 +30,8 @@ function Navigation(props) {
                 </a>
               </li>
               <li>
-              <Link to="/login">
-                <a className="uk-link-reset">
+              <Link to="/login" className="uk-link-reset">               
                     <button onClick={handleLogout} className="uk-button uk-width-1-1">Log Out</button>
-                </a>
                 </Link>
               </li>
             </ul>

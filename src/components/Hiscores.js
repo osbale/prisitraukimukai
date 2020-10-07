@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import firebase from "firebase/app";
+import { useState } from "react";
+
+
 
 function Hiscores() {
+
+
+  /*   const record = [
+    firebase.database().ref(`leaderboard/${userId1}`).once(`value`),
+    firebase.database().ref(`leaderboard/${userId2}`).once(`value`),
+  ];
+
+  return Promise.all(records).then(snapshots => {
+    const record1 = snapshots[0].val();
+    const record2 = snapshots[1].val();
+  }) */
+
+
+  const getData = () => {
+    
+    return firebase
+      .database()
+      .ref("/leaderboard/")
+      .once("value")
+      .then(function (snapshot) {
+        console.log(snapshot.val());
+      });
+  };
+  
+  useEffect(()=> {
+    getData();
+  }, [])
+
   return (
     <div>
       <div className="Character uk-card uk-card-default uk-card-body uk-animation-fade">

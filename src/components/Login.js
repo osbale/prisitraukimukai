@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import UIkit from "uikit";
 
 function Login(props) {
@@ -16,7 +16,7 @@ function Login(props) {
     clearErrors,
   } = props;
 
-  if (passwordError != "") {
+  if (passwordError !== "") {
     UIkit.notification({
       message: passwordError,
       status: "warning",
@@ -24,7 +24,7 @@ function Login(props) {
     clearErrors();
   }
 
-  if (emailError != "") {
+  if (emailError !== "") {
     UIkit.notification({
       message: emailError,
       status: "warning",
