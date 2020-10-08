@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import UIkit from 'uikit'
 
-const Modal = (props) => {
+const ModalGoal = (props) => {
 
 const {setDbGoal} = props;
 
@@ -17,7 +17,7 @@ const updateInfo = () => {
 
 
     return (
-        <div id="modal-example" data-uk-modal>
+        <div id="modal-goal" data-uk-modal>
             <div className="uk-modal-dialog uk-modal-body">
                 <h2 className="uk-modal-title uk-text-center">Goals</h2>
                 <p className="uk-text-center">Here you can update your Pull Up goal!</p>
@@ -32,4 +32,4 @@ const updateInfo = () => {
     );
 };
 
-export default Modal;
+export default ModalGoal;

@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import Modal from "../Modal";
+import ModalGoal from "../ModalGoal";
 import CharacterInfo from "./CharacterInfo";
 import firebase from "firebase";
 
 const CharactersLoader = () => {
+
+  let userId = firebase.auth().currentUser.uid;
+  let userEmail = firebase.auth().currentUser.email;
+
   const getData = () => {
-    let userId = firebase.auth().currentUser.uid;
     return firebase
       .database()
       .ref("/users/" + userId)
@@ -17,7 +20,6 @@ const CharactersLoader = () => {
   };
 
   function setData() {
-    let userId = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("users/" + userId)
@@ -25,12 +27,14 @@ const CharactersLoader = () => {
         total: total,
         goal: goal,
         updated: firebase.database.ServerValue.TIMESTAMP,
+        userEmail: userEmail
       });
     firebase
       .database()
       .ref("leaderboard/" + userId)
       .set({
         total: total,
+        userEmail: userEmail,
         updated: firebase.database.ServerValue.TIMESTAMP,
       });
   }
@@ -112,11 +116,11 @@ const CharactersLoader = () => {
         <button
           className="uk-button uk-margin-top"
           type="button"
-          data-uk-toggle="target: #modal-example"
+          data-uk-toggle="target: #modal-goal"
         >
           Nustatymai
         </button>
-        <Modal setDbGoal={setDbGoal} />
+        <ModalGoal setDbGoal={setDbGoal} />
       </div>
     </div>
   );

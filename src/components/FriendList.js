@@ -1,6 +1,11 @@
 import React from "react";
+import ModalFriend from "./ModalFriend";
+import firebase from "firebase";
+
 
 function FriendList() {
+
+
   return (
     <div>
       <div className="uk-card uk-card-default uk-card-body uk-animation-fade">
@@ -37,6 +42,9 @@ function FriendList() {
             </tr>
           </tbody>
         </table>
+        <button className="uk-button"
+        data-uk-toggle="target: #modal-friends">Add Friend</button>
+        <ModalFriend />
       </div>
     </div>
   );

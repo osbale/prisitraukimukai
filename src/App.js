@@ -60,6 +60,7 @@ function App() {
         firebase.database().ref('users/' + u.user.uid).set({
           goal: 1000,
           total: 0,
+          userEmail: u.user.email,
           updated: firebase.database.ServerValue.TIMESTAMP
         })
       })

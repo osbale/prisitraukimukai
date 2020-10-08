@@ -2,38 +2,44 @@ import React, { useEffect } from "react";
 import firebase from "firebase/app";
 import { useState } from "react";
 
-
-
 function Hiscores() {
 
+  let orderedList = [];
+  const [hiscores, setHiscores] = useState();
 
-  /*   const record = [
-    firebase.database().ref(`leaderboard/${userId1}`).once(`value`),
-    firebase.database().ref(`leaderboard/${userId2}`).once(`value`),
-  ];
-
-  return Promise.all(records).then(snapshots => {
-    const record1 = snapshots[0].val();
-    const record2 = snapshots[1].val();
-  }) */
-
-
-  const getData = () => {
-    
-    return firebase
+  const getData = async () => {
+    let db = firebase
       .database()
       .ref("/leaderboard/")
-      .once("value")
-      .then(function (snapshot) {
-        console.log(snapshot.val());
+      .orderByChild("total")
+      .limitToLast(7);
+    db.once("value").then(function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        orderedList.push(childSnapshot.val());
+        setHiscores(
+          orderedList
+            .slice(0)
+            .reverse()
+            .map((data, index) => {
+              return (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{data.userEmail}</td>
+                  <td>{data.total}</td>
+                </tr>
+              );
+            })
+        );
       });
+    });
   };
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     getData();
-  }, [])
+  }, []);
 
   return (
+    console.log(hiscores),
     <div>
       <div className="Character uk-card uk-card-default uk-card-body uk-animation-fade">
         <table className="uk-table uk-table-divider uk-text-center">
@@ -44,23 +50,7 @@ function Hiscores() {
               <th className="uk-text-center">Pull-Ups</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>asdasd@gmail.com</td>
-              <td>121</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>asdasd1@gmail.com</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>asdasd2@gmail.com</td>
-              <td>80</td>
-            </tr>
-          </tbody>
+          <tbody>{hiscores}</tbody>
         </table>
       </div>
     </div>
