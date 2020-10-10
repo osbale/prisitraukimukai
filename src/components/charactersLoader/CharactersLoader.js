@@ -46,10 +46,6 @@ const CharactersLoader = () => {
   const [goal, setGoal] = useState(100);
   const isFirstRun = useRef(true);
 
-  useEffect(() => {
-    getData();
-    console.log("data gotten ");
-  }, []);
 
   const decrementFn = () => {
     if (count > 0) setCount((prevCount) => prevCount - 1);
@@ -62,7 +58,6 @@ const CharactersLoader = () => {
   const calculationsFn = () => {
     setTotal(dbTotal + count);
     setGoal(dbGoal);
-    console.log("newTotal achieved");
   };
 
   useEffect(() => {
@@ -71,9 +66,7 @@ const CharactersLoader = () => {
       return;
     }
     setData();
-    console.log("db updated");
     getData();
-    console.log("data gotten");
   }, [total]);
 
   return (

@@ -5,7 +5,7 @@ import Characters from "./components/Characters";
 import Navigation from "./components/Navigation";
 import Hiscores from "./components/Hiscores";
 import FriendList from "./components/FriendList";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import fire from "./database/fire";
 import firebase from "firebase"

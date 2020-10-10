@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import ModalFriend from "./ModalFriend";
 import firebase from "firebase";
 import { useState } from "react";
@@ -6,24 +6,18 @@ import { useEffect } from "react";
 import ModalProfile from "./ModalProfile";
 
 function FriendList() {
-  let followingList = [];
   const [following, setFollowing] = useState([]);
   const [info, setInfo] = useState('');
-  const [goal, setGoal] = useState(0);
-  const [total, setTotal] = useState(0);
   const [add, setAdd] = useState(false);
-
-  let userId = firebase.auth().currentUser.uid;
 
   const updateData = (props) => {
     setInfo(props);
-    firebase.database().ref("/users/" + props.followingId).once("value").then(function (snapshot) {
-      setGoal(snapshot.val().goal);
-      setTotal(snapshot.val().total);
-    });
+
   }
 
   useEffect(() => {
+    let userId = firebase.auth().currentUser.uid;
+    let followingList = [];
     firebase
       .database()
       .ref("/users/" + userId + "/following/")

@@ -15,19 +15,13 @@ function Navigation(props) {
           <nav>
             <ul className="uk-list uk-list-divider uk-margin-large-top">
               <li>
-                <a className="uk-link-reset">
-                    <button onClick={(e) => props.onChange("Home")} className="uk-button uk-width-1-1">Home</button>
-                </a>
+                    <button onClick={() => props.onChange("Home")} className="uk-button uk-width-1-1">Home</button>
               </li>
               <li>
-                <a className="uk-link-reset">
-                  <button onClick={(e) => props.onChange("Hiscores")} className="uk-button uk-width-1-1">Hiscores</button>
-                </a>
+                  <button onClick={() => props.onChange("Hiscores")} className="uk-button uk-width-1-1">Hiscores</button>
               </li>
               <li>
-                <a className="uk-link-reset">
-                  <button onClick={(e) => props.onChange("Following")} className="uk-button uk-width-1-1">Following</button>
-                </a>
+                  <button onClick={() => props.onChange("Following")} className="uk-button uk-width-1-1">Following</button>
               </li>
               <li>
               <Link to="/login" className="uk-link-reset">               

@@ -4,7 +4,6 @@ import PullupCharacter from './charactersLoader/PullupCharacter';
 
 const Characters = () => {
 
-    console.log();
     return (
         <div>
                 <div>

@@ -3,8 +3,10 @@ import { useState } from "react";
 import firebase from "firebase";
 
 function ModalFriend(props) {
+
+  const {setAdd} = props;
+
   const [friend, setFriend] = useState("");
-  let availableFriends = [];
   const [friendList, setFriendList] = useState([]);
   const isFirstRun = useRef(true);
 
@@ -12,28 +14,21 @@ function ModalFriend(props) {
     setFriend(e.target.value);
   };
 
-  const updateFriend = () => {
-    availableFriends = [];
-  }
-
-  /*   let userId = firebase.auth().currentUser.uid;
-
-  function setData(props) {
-    firebase
-      .database()
-      .ref("users/" + userId)
-      .set({
-        friends: props
-      });
-  }
- */
-  let userId = firebase.auth().currentUser.uid;
-
   useEffect(() => {
     if (isFirstRun.current) {
       isFirstRun.current = false;
       return;
     }
+
+    let availableFriends = [];
+
+    const updateFriend = () => {
+      availableFriends = [];
+    }
+  
+    
+  let userId = firebase.auth().currentUser.uid;
+
     firebase
       .database()
       .ref("/users/")
@@ -50,7 +45,7 @@ function ModalFriend(props) {
                       className="uk-button"
                       onClick={() => {
                         updateFriend();
-                        props.setAdd(true);
+                        setAdd(true);
                         firebase
                           .database()
                           .ref()
