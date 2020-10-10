@@ -1,5 +1,5 @@
 import React from "react";
-import PullupCharacter from "./charactersLoader/PullupCharacter";
+import PullupCharacter2 from "./charactersLoader/PullupCharacter2";
 import firebase from "firebase";
 
 function ModalProfile(props) {
@@ -7,11 +7,12 @@ function ModalProfile(props) {
   return (
     <div id="modal-profile" data-uk-modal>
       <div className="uk-modal-dialog uk-modal-body">
+      <button className="uk-modal-close-default" type="button" data-uk-close></button>
         <h2 className="uk-modal-title uk-text-center uk-text-bold">
           {props.email}
         </h2>
         <div className="uk-flex uk-flex-center">
-          <PullupCharacter style={{ height: "500px" }}></PullupCharacter>
+          <PullupCharacter2 style={{ height: "500px" }}></PullupCharacter2>
         </div>
         <div className="info">
           <p className="uk-text-bold uk-text-large uk-text-center">

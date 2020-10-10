@@ -89,3 +89,43 @@ body {
     font-size: 9px;
   }
 }
+
+#Kunas, #Galva, #Rankos1{
+  animation: Pullup 1s ease alternate;
+  animation-iteration-count: infinite;
+}
+
+#Kojos, #Kunas {
+  animation: Legs 1s ease alternate;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+#Galva {
+  animation: Head 1s ease alternate;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes Pullup {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-140px);
+  }
+}
+
+
+@keyframes Legs {
+    100% {-webkit-transform: translateY(-140px) rotate(-1deg);}
+}
+
+@keyframes Head {
+  from {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  to {
+    transform: translateY(-100px) rotate(1deg);
+  }
+}

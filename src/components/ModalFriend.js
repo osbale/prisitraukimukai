@@ -75,6 +75,7 @@ function ModalFriend(props) {
     <div>
       <div id="modal-friends" data-uk-modal>
         <div className="uk-modal-dialog uk-modal-body">
+        <button className="uk-modal-close-default" type="button" data-uk-close></button>
           <h2 className="uk-modal-title uk-text-center">Follow new people!</h2>
           <p className="uk-text-center">Search for new people and track their progress</p>
           <form action="" className="uk-form uk-text-center">
