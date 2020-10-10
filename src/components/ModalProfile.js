@@ -8,7 +8,7 @@ function ModalProfile(props) {
     <div id="modal-profile" data-uk-modal>
       <div className="uk-modal-dialog uk-modal-body">
       <button className="uk-modal-close-default" type="button" data-uk-close></button>
-        <h2 className="uk-modal-title uk-text-center uk-text-bold">
+        <h2 className="uk-modal-title uk-text-center uk-text-bold uk-text-break">
           {props.email}
         </h2>
         <div className="uk-flex uk-flex-center">

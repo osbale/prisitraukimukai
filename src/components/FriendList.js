@@ -60,7 +60,7 @@ function FriendList() {
   return (
     <div>
       <div className="followerlist uk-card uk-card-default uk-card-body uk-animation-fade">
-        <table className="uk-table uk-table-justify uk-table-divider uk-text-center">
+        <table className="uk-table uk-table-justify uk-table-divider uk-text-center uk-table-responsive">
           <thead>
             <tr>
               <th className="uk-width-small uk-text-center">Status</th>
