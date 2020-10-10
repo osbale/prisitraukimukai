@@ -4,7 +4,7 @@ Application for me and my friends to track our pullup progress.
 
 ## Features:
 
-1. Track your own pullup goal, total and remainder;
+> Track your own pullup goal, total and remainder;
 2. Set total and update goal;
 3. Highscores;
 4. Ability to search for other people;
