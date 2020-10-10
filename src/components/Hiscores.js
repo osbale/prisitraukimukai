@@ -25,7 +25,7 @@ function Hiscores() {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{data.userEmail}</td>
+                    <td className="uk-text-break">{data.userEmail}</td>
                     <td>{data.total}</td>
                   </tr>
                 );
@@ -40,7 +40,7 @@ function Hiscores() {
   return (
     <div>
       <div className="Character uk-card uk-card-default uk-card-body uk-animation-fade">
-        <table className="uk-table uk-table-divider uk-text-center">
+        <table className="uk-table uk-table-divider uk-text-center uk-table-responsive">
           <thead>
             <tr>
               <th className="uk-width-small uk-text-center">Place</th>

@@ -59,7 +59,7 @@ function FriendList() {
 
   return (
     <div>
-      <div className="uk-card uk-card-default uk-card-body uk-animation-fade">
+      <div className="followerlist uk-card uk-card-default uk-card-body uk-animation-fade">
         <table className="uk-table uk-table-justify uk-table-divider uk-text-center">
           <thead>
             <tr>

@@ -46,6 +46,10 @@ const CharactersLoader = () => {
   const [goal, setGoal] = useState(100);
   const isFirstRun = useRef(true);
 
+  useEffect(() => {
+    getData();
+    console.log("data gotten ");
+  }, []);
 
   const decrementFn = () => {
     if (count > 0) setCount((prevCount) => prevCount - 1);
@@ -58,6 +62,7 @@ const CharactersLoader = () => {
   const calculationsFn = () => {
     setTotal(dbTotal + count);
     setGoal(dbGoal);
+    console.log("newTotal achieved");
   };
 
   useEffect(() => {
@@ -66,13 +71,16 @@ const CharactersLoader = () => {
       return;
     }
     setData();
+    console.log("db updated");
     getData();
+    console.log("data gotten");
   }, [total]);
 
   return (
     <div>
       <div className="prisitraukimai uk-flex uk-flex-between uk-flex-middle">
         <button
+          id = "plusminus"
           className="uk-button"
           onClick={() => {
             decrementFn();
@@ -84,6 +92,7 @@ const CharactersLoader = () => {
           {count}
         </p>
         <button
+          id = "plusminus"
           className="uk-button"
           onClick={() => {
             incrementFn();
@@ -104,14 +113,14 @@ const CharactersLoader = () => {
           className="uk-button uk-margin-top"
           onClick={() => calculationsFn()}
         >
-          Submit
+          Patvirtinti
         </button>
         <button
           className="uk-button uk-margin-top"
           type="button"
           data-uk-toggle="target: #modal-goal"
         >
-          Goal
+          Nustatymai
         </button>
         <ModalGoal setDbGoal={setDbGoal} />
       </div>

@@ -80,3 +80,12 @@ body {
   color:black;
 }
 
+@media only screen and (max-width: 400px) {
+  #plusminus {
+    padding: 0 13px;
+  }
+
+  .followerlist th {
+    font-size: 9px;
+  }
+}

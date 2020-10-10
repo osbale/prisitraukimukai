@@ -93,7 +93,7 @@ function ModalFriend(props) {
               </button>
             </div>
           </form>
-          <table className="uk-table uk-table-small uk-table-divider">
+          <table className="uk-table uk-table-small uk-table-divider uk-table-responsive">
             <thead>
               <tr>
                 <th>Friend name</th>

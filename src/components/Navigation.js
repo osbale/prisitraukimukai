@@ -11,7 +11,7 @@ function Navigation(props) {
   return (
       <div>
         <div className="uk-card uk-card-default uk-card-body">
-          <h1 className="uk-text-lead">Hello, <span className="uk-text-bold">{userEmail}</span></h1>
+          <h1 className="uk-text-lead">Hello, <span className="uk-text-bold uk-text-break">{userEmail}</span></h1>
           <nav>
             <ul className="uk-list uk-list-divider uk-margin-large-top">
               <li>
