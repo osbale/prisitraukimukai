@@ -1,8 +1,8 @@
-### Pull-ups tracking website
+## Pull-ups tracking website
 
 Application for me and my friends to track our pullup progress.
 
-##Features:
+## Features:
 
 1. Track your own pullup goal, total and remainder;
 2. Set total and update goal;
