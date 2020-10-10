@@ -26,7 +26,7 @@ function Navigation(props) {
               </li>
               <li>
                 <a className="uk-link-reset">
-                  <button onClick={(e) => props.onChange("Friends")} className="uk-button uk-width-1-1">Friends</button>
+                  <button onClick={(e) => props.onChange("Following")} className="uk-button uk-width-1-1">Following</button>
                 </a>
               </li>
               <li>

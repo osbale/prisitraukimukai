@@ -106,7 +106,7 @@ function App() {
     component = <Characters />;
   } else if (menu === "Hiscores") {
     component = <Hiscores />;
-  } else if (menu === "Friends") {
+  } else if (menu === "Following") {
     component = <FriendList />;
   } else if (menu === "Log Out") {
   }

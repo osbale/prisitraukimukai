@@ -2,18 +2,21 @@ import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import firebase from "firebase";
 
-function ModalFriend() {
+function ModalFriend(props) {
   const [friend, setFriend] = useState("");
   let availableFriends = [];
-  const [friendList, setFriendList] = useState();
+  const [friendList, setFriendList] = useState([]);
   const isFirstRun = useRef(true);
-  const [addFriend, setAddFriend] = useState();
 
   const findFriend = (e) => {
     setFriend(e.target.value);
   };
 
-/*   let userId = firebase.auth().currentUser.uid;
+  const updateFriend = () => {
+    availableFriends = [];
+  }
+
+  /*   let userId = firebase.auth().currentUser.uid;
 
   function setData(props) {
     firebase
@@ -24,12 +27,13 @@ function ModalFriend() {
       });
   }
  */
+  let userId = firebase.auth().currentUser.uid;
 
   useEffect(() => {
     if (isFirstRun.current) {
-        isFirstRun.current = false;
-        return;
-      }
+      isFirstRun.current = false;
+      return;
+    }
     firebase
       .database()
       .ref("/users/")
@@ -38,13 +42,31 @@ function ModalFriend() {
           if (childSnapshot.val().userEmail.includes(friend)) {
             availableFriends.push(childSnapshot);
             setFriendList(
-              availableFriends.map((friends) => (
-                <tr key={friends.key}>
+              availableFriends.map((friends, index) => (
+                <tr key={index}>
                   <td>{friends.val().userEmail}</td>
                   <td>
-                    <button className="uk-button" onClick={ () => {
-                        setAddFriend(friends.key);
-                    }}>Add friend</button>
+                    <button
+                      className="uk-button"
+                      onClick={() => {
+                        updateFriend();
+                        props.setAdd(true);
+                        firebase
+                          .database()
+                          .ref()
+                          .child(
+                            "users/" + userId + "/following/" + friends.key
+                          )
+                          .set({
+                            follow: true,
+                            email: friends.val().userEmail,
+                            goal: friends.val().goal,
+                            total: friends.val().total,
+                          });
+                        }}
+                    >
+                      Follow
+                    </button>
                   </td>
                 </tr>
               ))
@@ -54,17 +76,16 @@ function ModalFriend() {
       });
   }, [friend]);
 
-
   return (
     <div>
       <div id="modal-friends" data-uk-modal>
         <div className="uk-modal-dialog uk-modal-body">
-          <h2 className="uk-modal-title uk-text-center">Add new Friend</h2>
-          <p className="uk-text-center">Here you can add new friends!</p>
+          <h2 className="uk-modal-title uk-text-center">Follow new people!</h2>
+          <p className="uk-text-center">Search for new people and track their progress</p>
           <form action="" className="uk-form uk-text-center">
             <input
               className="uk-input"
-              placeholder="Tikslas"
+              placeholder="Type in name"
               type="text"
               onChange={(e) => findFriend(e)}
             ></input>
@@ -84,7 +105,9 @@ function ModalFriend() {
                 <th>Options</th>
               </tr>
             </thead>
-            <tbody>{friendList}</tbody>
+            <tbody>
+              {friendList}
+            </tbody>
           </table>
         </div>
       </div>

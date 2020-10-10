@@ -111,14 +111,14 @@ const CharactersLoader = () => {
           className="uk-button uk-margin-top"
           onClick={() => calculationsFn()}
         >
-          Patvirtinti
+          Submit
         </button>
         <button
           className="uk-button uk-margin-top"
           type="button"
           data-uk-toggle="target: #modal-goal"
         >
-          Nustatymai
+          Goal
         </button>
         <ModalGoal setDbGoal={setDbGoal} />
       </div>
