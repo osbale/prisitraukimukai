@@ -4,13 +4,13 @@ Application for me and my friends to track our pullup progress.
 
 ## Features:
 
-> Track your own pullup goal, total and remainder;
-> Set total and update goal;
-> Highscores;
-> Ability to search for other people;
-> Ability to follow/unfollow them;
-> Ability to see their status (goal, total);
-> Registration using Email/Password
+* Track your own pullup goal, total and remainder;
+* Set total and update goal;
+* Highscores;
+* Ability to search for other people;
+* Ability to follow/unfollow them;
+* Ability to see their status (goal, total);
+* Registration using Email/Password
 
 ## Stack Used:
 
