@@ -8,7 +8,7 @@ Application for me and my friends to track our pullup progress.
 * Set total and update goal;
 * Highscores;
 * Ability to search for other people;
-* Ability to follow/unfollow them;
+* Ability to follow/unfollow people;
 * Ability to see their progress (goal, total);
 * Registration using Email/Password
 
